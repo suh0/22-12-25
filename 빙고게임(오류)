@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main(void)
+{
+	// 5x5 빙고게임
+
+	// 1 ~ 25 숫자표 보여주기
+	// 사용자가 번호 입력하면, 해당 칸 변경
+	// 같거나 범위에 벗어난 값을 선택하면 다시 선택
+	// 5줄 맞추면 끝
+
+	int arr[5][5];
+	int count = 0;
+	int answer;
+	int(*ptr)[5][5];
+	ptr = &arr;
+
+	for (int x = 0; x < 5; x++)
+	{
+		for (int y = 0; y < 5; y++)
+		{
+			count++;
+			arr[x][y] = count;
+			printf("  %2d  ", arr[x][y]);
+		}
+		printf("\n");
+	}
+
+
+	printf("뒤집을 칸 숫자를 입력하세요: ");
+	scanf_s("%d", &answer);
+
+	//3  3/5 = 0...3
+
+	if (*ptr[(answer / 5)][(answer % 5)] == answer)	//아직 안바뀌고 숫자라면,       //이부분이 안되는데, ptr와 배열 문법이 문제같다.
+	{
+		*ptr[(answer / 5)][(answer % 5)] = 90;
+		printf("\n\n%d", *ptr[(answer / 5)][(answer % 5)]);
+
+	}
+
+	//for (int x = 0; x < 5; x++)
+	//{
+	//	for (int y = 0; y < 5; y++)
+	//	{
+	//		printf("  %2d  ", *ptr[x][y]);
+	//	}
+	//	printf("\n");
+	//}
+
+
+	return 0;
+}

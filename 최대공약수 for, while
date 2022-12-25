@@ -1,0 +1,78 @@
+#include<stdio.h>
+
+int num1, num2;
+int x, y;
+int r;	//나머지
+
+void saveXY();
+
+
+int main_2(void)
+{
+	//수 입력받기
+	//두 숫자 크기 비교
+	//큰/작 한 나머지 %
+	//나머지가 0인 시점의 작값 = 최대 공배수
+
+
+
+	printf("수 입력 2개: ");
+	scanf_s("%d %d", &num1, &num2);
+
+	saveXY();
+	
+	if (x <= 0 || y <= 0)
+	{
+		printf("양의 정수 입력바람\n");
+		exit(1);
+	}
+
+
+	/*for (int check = 0; check < 1;)
+	{
+		r = x % y;
+		if (r == 0)
+		{
+			break;
+		}
+		x = y;
+		y = r;
+
+	}*/
+	
+	/*while (r != 0)
+	{
+		r = x % y;
+		if (r == 0)
+		{
+			break;
+		}
+		x = y;
+		y = r;
+	}*/
+	printf("최대공약수는 %d입니다.", y);
+
+	return 0;
+}
+
+
+void saveXY()			//괄호 안 void인지 변수인지 확인
+{
+	if (num1 > num2)
+	{
+		x = num1;
+		y = num2;
+	}
+
+	else if (num1 < num2)
+	{
+		x = num2;
+		y = num1;
+	}
+
+	else
+	{
+		printf("같은 수 입니다\n");
+		exit(1);
+	}
+}
